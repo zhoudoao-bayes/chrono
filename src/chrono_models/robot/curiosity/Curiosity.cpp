@@ -382,6 +382,7 @@ CuriosityBalancer::CuriosityBalancer(const std::string& name,
             break;
         case 1:
             m_mesh_name = "curiosity_bar_R";
+            break;
         case 2:
             m_mesh_name = "curiosity_balancer";
     }
