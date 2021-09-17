@@ -382,16 +382,7 @@ CuriosityDifferentialLink::CuriosityDifferentialLink(const std::string& name,
                                                      std::shared_ptr<ChMaterialSurface> mat,
                                                      int side)
     : CuriosityPart(name, rel_pos, mat, false) {
-    switch (which) {
-        case 0:
-            m_mesh_name = "curiosity_bar_L";
-            break;
-        case 1:
-            m_mesh_name = "curiosity_bar_R";
-            break;
-        case 2:
-            m_mesh_name = "curiosity_balancer";
-    }
+    m_mesh_name = (side == 0) ? "curiosity_bar_L" : "curiosity_bar_R";
     m_color = ChColor(0.4f, 0.4f, 0.7f);
 
     CalcMassProperties(1000);
