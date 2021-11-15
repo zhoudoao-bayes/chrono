@@ -348,7 +348,7 @@ windows:vs2019:deploy:
     - rm -r build
     # get libiomp5md.lib
     - $libiomppth=Join-Path -Path $Env:CONDA_INSTALL_LOCN -ChildPath "\Library\lib\libiomp5md.lib"
-    - Invoke-WebRequest -Uri http://www.projectchrono.org/assets/downloads/libiomp5md.lib  -OutFile $libiomppth
+    - cp "C:\Program Files (x86)\Intel\oneAPI\compiler\2021.2.0\windows\compiler\lib\intel64_win\libiomp5md.lib" $libiomppth
     - mkdir ./logs
     - $Env:LOG_DIR=Join-Path -Path $pwd -ChildPath "\logs"
     # this command is needed to get the git describe data needed by the numbering
