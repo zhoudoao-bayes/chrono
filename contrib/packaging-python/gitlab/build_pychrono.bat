@@ -11,7 +11,9 @@ call conda install -c conda-forge swig=4.0.2 --yes
 call conda install -c dlr-sc opencascade --yes
 call conda install mkl --yes
 call conda install cmake --yes
-call conda install jinja2 --yes
+call conda install jinja2 --
+call conda config --add channels https://conda.anaconda.org/conda-forge
+call conda config --add channels https://conda.anaconda.org/intel
 Rem call conda install ninja --yes
 call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
 Rem CMAKE config output is redirected to a file otherwise it gets truncated due to depth
