@@ -21,9 +21,9 @@ call conda build purge-all timeout /t 240
 call conda build .\contrib\packaging-python\conda --python=3.8 --no-remove-work-dir
 call anaconda --token "%ANACONDA_TOKEN%" upload "%CONDA_INSTALL_LOCN%"\conda-bld\win-64\pychrono*.bz2 --force --label develop  >> "%LOG_DIR%"\condauploadlog.txt 2>&1
 call conda build purge-all  timeout /t 240
-call conda build .\contrib\packaging-python\conda --python=3.7 --no-remove-work-dir
-call anaconda --token "%ANACONDA_TOKEN%" upload "%CONDA_INSTALL_LOCN%"\conda-bld\win-64\pychrono*.bz2 --force --label develop  >> "%LOG_DIR%"\condauploadlog.txt 2>&1
-call conda build purge  timeout /t 240
-call conda build .\contrib\packaging-python\conda --python=3.6 --no-remove-work-dir
-call anaconda --token "%ANACONDA_TOKEN%" upload "%CONDA_INSTALL_LOCN%"\conda-bld\win-64\pychrono*.bz2 --force --label develop  >> "%LOG_DIR%"\condauploadlog.txt 2>&1
+Rem call conda build .\contrib\packaging-python\conda --python=3.7 --no-remove-work-dir
+Rem call anaconda --token "%ANACONDA_TOKEN%" upload "%CONDA_INSTALL_LOCN%"\conda-bld\win-64\pychrono*.bz2 --force --label develop  >> "%LOG_DIR%"\condauploadlog.txt 2>&1
+Rem call conda build purge  timeout /t 240
+Rem call conda build .\contrib\packaging-python\conda --python=3.6 --no-remove-work-dir
+Rem call anaconda --token "%ANACONDA_TOKEN%" upload "%CONDA_INSTALL_LOCN%"\conda-bld\win-64\pychrono*.bz2 --force --label develop  >> "%LOG_DIR%"\condauploadlog.txt 2>&1
 echo End Reached
