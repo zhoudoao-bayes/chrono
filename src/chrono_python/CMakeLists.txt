@@ -159,6 +159,8 @@ if(ENABLE_PY_PARSER)
           ARCHIVE DESTINATION lib)
 
   INSTALL(FILES ${ChronoEngine_PYPARSER_HEADERS} DESTINATION include/chrono_python)
+else()
+  include_directories(${CH_PYTHONINC})
 endif()
 #-----------------------------------------------------------------------------
 # MODULE for the core wrapper, including most of the C::E
