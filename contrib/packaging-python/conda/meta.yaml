@@ -27,10 +27,10 @@ requirements:
     - python
     - cmake >=3.9.3
     - swig >=4.0.0
-    #- mkl-devel
-    #- numpy >=1.16
-    #- glew
-    #- glfw
+    - mkl-devel
+    - numpy >=1.16
+    - glew
+    - glfw
 
   run:
     - python
