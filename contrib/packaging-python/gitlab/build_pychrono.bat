@@ -1,9 +1,10 @@
 @echo on
 echo Process begins
 call "%CONDA_INSTALL_LOCN%"\Scripts\activate.bat
-call conda install --yes anaconda-client=1.9.0
+call conda install --yes anaconda-client
 Rem call conda uninstall --yes conda-build
 call conda install --yes conda-build=3.18.11
+call conda update --all
 call conda install --yes -c intel mkl-devel
 Rem needed for libiomp5md.lib
 Rem conda install -c intel openmp
