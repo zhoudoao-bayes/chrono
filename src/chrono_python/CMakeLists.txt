@@ -5,6 +5,8 @@
 #=============================================================================
 
 option(ENABLE_MODULE_PYTHON "Enable the Chrono Python module" OFF)
+option(ENABLE_PY_PARSER "Enable the Python parser" ENABLE_MODULE_PYTHON)
+mark_as_advanced(FORCE ENABLE_PY_PARSER)
 
 # Return now if this module is not enabled
 if(NOT ENABLE_MODULE_PYTHON)
