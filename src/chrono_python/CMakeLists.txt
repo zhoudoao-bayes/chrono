@@ -122,44 +122,44 @@ endif()
 #-----------------------------------------------------------------------------
 # Create the ChronoEngine_pyparser library
 #-----------------------------------------------------------------------------
+if(ENABLE_PY_PARSER)
+  message(STATUS "...add Chrono PYPARSER library")
 
-message(STATUS "...add Chrono PYPARSER library")
+  # List the files in the Python parser library to be used via C++
+  set(ChronoEngine_PYPARSER_SOURCES
+      ChPython.cpp
+      )
+  set(ChronoEngine_PYPARSER_HEADERS
+      ChApiPyParser.h
+      ChPython.h
+      ChSwigutils.h
+      )
 
-# List the files in the Python parser library to be used via C++
-set(ChronoEngine_PYPARSER_SOURCES
-    ChPython.cpp
-    )
-set(ChronoEngine_PYPARSER_HEADERS
-    ChApiPyParser.h
-    ChPython.h
-    ChSwigutils.h
-    )
+  source_group(""  FILES  ${ChronoEngine_PYPARSER_SOURCES} ${ChronoEngine_PYPARSER_HEADERS})
 
-source_group(""  FILES  ${ChronoEngine_PYPARSER_SOURCES} ${ChronoEngine_PYPARSER_HEADERS})
+  include_directories(${CH_PYTHONINC})
 
-include_directories(${CH_PYTHONINC})
+  add_library(ChronoEngine_pyparser SHARED
+              ${ChronoEngine_PYPARSER_SOURCES}
+              ${ChronoEngine_PYPARSER_HEADERS})
 
-add_library(ChronoEngine_pyparser SHARED
-            ${ChronoEngine_PYPARSER_SOURCES}
-            ${ChronoEngine_PYPARSER_HEADERS})
+  set_target_properties(ChronoEngine_pyparser PROPERTIES
+                        LINK_FLAGS "${CH_LINKERFLAG_SHARED}")
 
-set_target_properties(ChronoEngine_pyparser PROPERTIES
-                      LINK_FLAGS "${CH_LINKERFLAG_SHARED}")
+  target_compile_definitions(ChronoEngine_pyparser PRIVATE "CH_API_COMPILE_PYPARSER")
+  target_compile_definitions(ChronoEngine_pyparser PRIVATE "CH_IGNORE_DEPRECATED")
 
-target_compile_definitions(ChronoEngine_pyparser PRIVATE "CH_API_COMPILE_PYPARSER")
-target_compile_definitions(ChronoEngine_pyparser PRIVATE "CH_IGNORE_DEPRECATED")
+  target_link_libraries(ChronoEngine_pyparser ${CH_PYTHONLIB} ChronoEngine)
 
-target_link_libraries(ChronoEngine_pyparser ${CH_PYTHONLIB} ChronoEngine)
+  ADD_DEPENDENCIES(ChronoEngine_pyparser ChronoEngine)
 
-ADD_DEPENDENCIES(ChronoEngine_pyparser ChronoEngine)
+  install(TARGETS ChronoEngine_pyparser
+          RUNTIME DESTINATION bin
+          LIBRARY DESTINATION lib
+          ARCHIVE DESTINATION lib)
 
-install(TARGETS ChronoEngine_pyparser
-        RUNTIME DESTINATION bin
-        LIBRARY DESTINATION lib
-        ARCHIVE DESTINATION lib)
-
-INSTALL(FILES ${ChronoEngine_PYPARSER_HEADERS} DESTINATION include/chrono_python)
-
+  INSTALL(FILES ${ChronoEngine_PYPARSER_HEADERS} DESTINATION include/chrono_python)
+endif()
 #-----------------------------------------------------------------------------
 # MODULE for the core wrapper, including most of the C::E
 #-----------------------------------------------------------------------------
