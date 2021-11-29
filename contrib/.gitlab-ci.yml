@@ -359,7 +359,7 @@ windows:vs2019:deploy:
     #- Start-Process -Wait  "Miniconda3-latest-Windows-x86_64.exe" -ArgumentList "/InstallationType=JustMe /RegisterPython=0 /S /D=$env:CONDA_INSTALL_LOCN"
     # Initializing the PowerShell would require to restart it. Since it isn't possible, we use the cmd instead.
     - Start-Process "cmd.exe" "/c .\contrib\packaging-python\gitlab\build_pychrono.bat >outputfile.txt"
-    - Start-Sleep -s 4000
+    - Start-Sleep -s 8000
     - get-content outputfile.txt
     - Copy-Item "./outputfile.txt" -Destination "./logs/"
     - Remove-Item $Env:CONDA_INSTALL_LOCN\conda-bld\*pychrono* -Recurse -Force
