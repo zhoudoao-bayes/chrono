@@ -15,7 +15,7 @@ call conda install -c conda-forge swig=4.0.2 --yes
 call conda install -c dlr-sc opencascade --yes
 call conda install mkl --yes
 call conda install cmake --yes
-call conda install jinja2 --
+call conda install jinja2 --yes
 call conda config --add channels https://conda.anaconda.org/conda-forge
 call conda config --add channels https://conda.anaconda.org/intel
 Rem call conda install ninja --yes
