@@ -19,7 +19,7 @@ call conda install jinja2 --
 call conda config --add channels https://conda.anaconda.org/conda-forge
 call conda config --add channels https://conda.anaconda.org/intel
 Rem call conda install ninja --yes
-call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
+call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvars64.bat"
 Rem CMAKE config output is redirected to a file otherwise it gets truncated due to depth
 call conda build purge-all timeout /t 240
 call conda build .\contrib\packaging-python\conda --python=3.8 --no-remove-work-dir
