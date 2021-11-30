@@ -1,6 +1,9 @@
 @echo on
 echo Process begins
 call "%CONDA_INSTALL_LOCN%"\Scripts\activate.bat
+Rem Create a fresh env for the build
+call conda create --name buildenv --yes
+call conda activate buildenv
 call conda install --yes anaconda-client
 Rem call conda uninstall --yes conda-build
 call conda install --yes conda-build=3.18.11
@@ -27,4 +30,7 @@ Rem call anaconda --token "%ANACONDA_TOKEN%" upload "%CONDA_INSTALL_LOCN%"\conda
 Rem call conda build purge  timeout /t 240
 Rem call conda build .\contrib\packaging-python\conda --python=3.6 --no-remove-work-dir
 Rem call anaconda --token "%ANACONDA_TOKEN%" upload "%CONDA_INSTALL_LOCN%"\conda-bld\win-64\pychrono*.bz2 --force --label develop  >> "%LOG_DIR%"\condauploadlog.txt 2>&1
+Rem Delete the build env, so that we have a fresh one every time
+call conda deactivate
+call conda remove --name buildenv --all --yes
 echo End Reached
