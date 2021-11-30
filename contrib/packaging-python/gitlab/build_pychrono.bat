@@ -2,7 +2,7 @@
 echo Process begins
 call "%CONDA_INSTALL_LOCN%"\Scripts\activate.bat
 Rem Create a fresh env for the build
-call conda create --name buildenv --yes
+call conda create --name buildenv python=3.8 --yes
 call conda activate buildenv
 call conda install --yes anaconda-client
 Rem call conda uninstall --yes conda-build
