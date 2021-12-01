@@ -1,6 +1,3 @@
-if(NOT ENABLE_PY_PARSER)
-  return()
-endif()
 #--------------------------------------------------------------
 
 set(PY_DEMOS
