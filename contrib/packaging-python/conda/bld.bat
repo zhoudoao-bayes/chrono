@@ -10,8 +10,9 @@ set MKL_INTERFACE_LAYER = LP64
 set MKL_THREADING_LAYER = INTEL
 set CONFIGURATION=Release
 REM Configure step
-cmake -G "Visual Studio 17 202" ^
+cmake -G "Visual Studio 17 2022" ^
  -T="v143" ^
+ -DEIGEN3_INCLUDE_DIR="C:/Users/builder/Documents/eigen-3.3.9/" ^
  -DCMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%" ^
  -DCMAKE_PREFIX_PATH="%LIBRARY_PREFIX%" ^
  -DCMAKE_SYSTEM_PREFIX_PATH="%LIBRARY_PREFIX%" ^
@@ -19,8 +20,8 @@ cmake -G "Visual Studio 17 202" ^
  -DPYTHON_EXECUTABLE:FILEPATH="%PYTHON%" ^
  -DPYTHON_INCLUDE_DIR:PATH="%PREFIX%"/include ^
  -DPYTHON_LIBRARY:FILEPATH="%PREFIX%"/libs/python%MY_PY_VER%.lib ^
- -DSWIG_DIR="%CONDA_INSTALL_LOCN%"/Library/bin/Lib ^
- -DSWIG_EXECUTABLE="%CONDA_INSTALL_LOCN%"/Library/bin/swig.exe ^
+ -DSWIG_DIR="%CONDA_INSTALL_LOCN%"/envs/buildenv/Library/bin/Lib ^
+ -DSWIG_EXECUTABLE="%CONDA_INSTALL_LOCN%"/envs/buildenv/Library/bin/swig.exe ^
  -DCMAKE_BUILD_TYPE="%CONFIGURATION%" ^
  -DENABLE_MODULE_IRRLICHT=ON ^
  -DENABLE_MODULE_POSTPROCESS=ON ^
@@ -31,17 +32,16 @@ cmake -G "Visual Studio 17 202" ^
  -DBUILD_TESTING=OFF ^
  -DBUILD_GMOCK=OFF ^
  -DBUILD_BENCHMARKING=OFF ^
- -DIRRLICHT_ROOT="C:\Users\builder\Documents\irrlicht-1.8.5" ^
- -DIRRLICHT_LIBRARY="C:\Users\builder\Documents\irrlicht-1.8.5\lib\Win64-visualStudio\Irrlicht.lib" ^
- -DEIGEN3_INCLUDE_DIR="C:\Users\builder\Documents\eigen-3.3.9\" ^
+ -DIRRLICHT_ROOT="C:/Users/builder/Documents/irrlicht-1.8.5" ^
+ -DIRRLICHT_LIBRARY="C:/Users/builder/Documents/irrlicht-1.8.5/lib/Win64-visualStudio/Irrlicht.lib" ^
  -DENABLE_MODULE_CASCADE=ON ^
- -DCASCADE_INCLUDE_DIR="%CONDA_INSTALL_LOCN%"\Library\include\opencascade ^
- -DCASCADE_LIBDIR="%CONDA_INSTALL_LOCN%"\Library\lib ^
+ -DCASCADE_INCLUDE_DIR="%CONDA_INSTALL_LOCN%"/envs/buildenv/Library/include/opencascade ^
+ -DCASCADE_LIBDIR="%CONDA_INSTALL_LOCN%"/envs/buildenv/Library/lib ^
  -DENABLE_MODULE_PARDISO_MKL=ON ^
- -DMKL_INCLUDE_DIR="%CONDA_INSTALL_LOCN%"\Library\include ^
- -DMKL_RT_LIBRARY="%CONDA_INSTALL_LOCN%"\Library\lib\mkl_rt.lib ^
- -DIOMP5_LIBRARY="%CONDA_INSTALL_LOCN%"\Library\lib\libiomp5md.lib ^
- -DPYCHRONO_DATA_PATH="..\..\..\..\..\Library\data" ^
+ -DMKL_INCLUDE_DIR="%CONDA_INSTALL_LOCN%"/envs/buildenv/Library/include ^
+ -DMKL_RT_LIBRARY="%CONDA_INSTALL_LOCN%"/envs/buildenv/Library/lib/mkl_rt.lib ^
+ -DIOMP5_LIBRARY="%CONDA_INSTALL_LOCN%"/Library/lib/libiomp5md.lib ^
+ -DPYCHRONO_DATA_PATH="../../../../../Library/data" ^
  .. >> "%LOG_DIR%"\cmakeconfiglog.txt 2>&1
 if errorlevel 1 exit 1
  
