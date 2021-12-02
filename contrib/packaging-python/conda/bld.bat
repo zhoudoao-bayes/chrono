@@ -27,7 +27,6 @@ cmake -G "Visual Studio 17 2022" ^
  -DENABLE_MODULE_POSTPROCESS=ON ^
  -DENABLE_MODULE_VEHICLE=ON ^
  -DENABLE_MODULE_PYTHON=ON ^
- -DENABLE_PY_PARSER=OFF ^
  -DBUILD_DEMOS=OFF ^
  -DBUILD_TESTING=OFF ^
  -DBUILD_GMOCK=OFF ^
@@ -56,4 +55,3 @@ if errorlevel 1 exit 1
 REM Install step
 REM ninja install
 REM if errorlevel 1 exit 1
-
