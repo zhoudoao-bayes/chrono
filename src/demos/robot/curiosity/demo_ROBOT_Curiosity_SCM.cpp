@@ -72,7 +72,7 @@ CuriosityChassisType chassis_type = CuriosityChassisType::FullRover;
 CuriosityWheelType wheel_type = CuriosityWheelType::RealWheel;
 
 // Simulation time step
-double time_step = 1e-3;
+double time_step = 5e-4;
 
 // -----------------------------------------------------------------------------
 
